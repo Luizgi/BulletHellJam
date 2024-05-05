@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+
 //Rotaciona Imagem aonde o direcional estiver apontando
 image_angle = point_direction(x, y, mouse_x, mouse_y);
 
@@ -10,7 +9,6 @@ if(keyboard_check(vk_left)) x -= 4;
 //Se Apertar Keyboard modifica y
 if(keyboard_check(vk_up)) y -= 4;
 if(keyboard_check(vk_down)) y += 4;
-
 //Atirando
 if(mouse_check_button(mb_left)) && (cooldown < 1)
 {
