@@ -18,6 +18,6 @@ y = weapon_y;
 if(mouse_check_button(mb_left)) && (cooldown < 1)
 {
 	instance_create_layer(x, y, "BulletLayer", obj_bullet);
-	cooldown = 3;
+	cooldown = 15;
 }
 cooldown = cooldown - 1;
