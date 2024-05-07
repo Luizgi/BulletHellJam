@@ -14,10 +14,17 @@ public abstract class Weapon: MonoBehaviour
 
     [SerializeField]protected float shootSpeed;
     [SerializeField]protected GameObject gun;
-    [SerializeField]protected float waitShoot;
 
+    [SerializeField]protected float waitShoot;
+    protected float recoilAmount;
+    protected float recoilRecoveryTime;
+    protected Quaternion initialRotation;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+    }
     protected void Rotate()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -37,10 +44,7 @@ public abstract class Weapon: MonoBehaviour
         Vector2 shootDir = shootPos.right;
         gun.GetComponent<Rigidbody2D>().velocity = shootDir * shootSpeed;
     }
-    protected void Recoil()
-    {
 
-    }
     protected virtual void Reload()
     {
         if(manyBullet <= 0)
@@ -48,7 +52,6 @@ public abstract class Weapon: MonoBehaviour
             manyBullet = maxBullet;
         }
     }
-
     public void SetBullet(TextMeshProUGUI uiBullet)
     {
         uiBullet.text = manyBullet.ToString() + " / " + maxBullet.ToString();

@@ -9,10 +9,15 @@ public class Fuzile : Weapon
     private void Start()
     {
         SetBullet(uiBullet);
+
         position = this.gameObject;
+
+
+
         shootSpeed = 10f;
         waitShoot = .1f;
         maxBullet = 60;
+ 
         shootPos = transform.Find("shootPos").transform;
         manyBullet = maxBullet;
 
@@ -20,7 +25,6 @@ public class Fuzile : Weapon
     private void Update()
     {
         SetBullet(uiBullet);
-
         Rotate();
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -34,6 +38,8 @@ public class Fuzile : Weapon
             if (waitShoot <= 0)
             {
                 Shoot();
+     
+
                 waitShoot = .1f;
                 manyBullet -= 1;
             }

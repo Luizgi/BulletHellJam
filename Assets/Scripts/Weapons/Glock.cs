@@ -10,12 +10,15 @@ public class Glock: Weapon
     private void Start()
     {
         SetBullet(uiBullet);
-        SetBullet(uiBullet);
 
         position = this.gameObject;
+
+
+
         shootSpeed = 5f;
         waitShoot = .5f;
         maxBullet = 12;
+
         shootPos = transform.Find("shootPos").transform;
         manyBullet = maxBullet;
     }
@@ -23,7 +26,6 @@ public class Glock: Weapon
     {
         Rotate();
         SetBullet(uiBullet);
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             base.Reload();
@@ -35,6 +37,7 @@ public class Glock: Weapon
             if(waitShoot <= 0)
             {
                 Shoot();
+
                 waitShoot = .5f;
                 manyBullet -= 1;
             }

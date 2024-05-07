@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - PostProcessing
-  - 
+  - Collider
   - 
   - 
   - 
@@ -45,8 +45,11 @@ TagManager:
   - name: Ground
     uniqueID: 4088513145
     locked: 0
-  - name: Obstacles
+  - name: ObstacleBase
     uniqueID: 3286425511
+    locked: 0
+  - name: Obstacle
+    uniqueID: 3703522013
     locked: 0
   - name: Trail
     uniqueID: 2069082915
