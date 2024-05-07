@@ -12,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - PostProcessing
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
     locked: 0
   - name: Obstacles
     uniqueID: 3286425511
+    locked: 0
+  - name: Trail
+    uniqueID: 2069082915
     locked: 0
   - name: Player
     uniqueID: 4260279355
