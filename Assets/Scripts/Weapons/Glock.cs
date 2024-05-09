@@ -12,10 +12,11 @@ public class Glock: Weapon
         SetBullet(uiBullet);
 
         position = this.gameObject;
+        anim = this.GetComponent<Animator>();
+        shellCase = this.GetComponentInChildren<ParticleSystem>();
 
 
-
-        shootSpeed = 5f;
+        shootSpeed = 25f;
         waitShoot = .5f;
         maxBullet = 12;
 

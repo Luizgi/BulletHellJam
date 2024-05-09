@@ -11,10 +11,11 @@ public class Fuzile : Weapon
         SetBullet(uiBullet);
 
         position = this.gameObject;
+        anim = this.GetComponent<Animator>();
+        shellCase = this.GetComponentInChildren<ParticleSystem>();
 
 
-
-        shootSpeed = 10f;
+        shootSpeed = 40f;
         waitShoot = .1f;
         maxBullet = 60;
  

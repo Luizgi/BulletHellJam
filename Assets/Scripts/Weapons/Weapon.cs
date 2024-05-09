@@ -11,6 +11,7 @@ public abstract class Weapon: MonoBehaviour
     protected Transform shootPos;
     protected int manyBullet;
     protected int maxBullet;
+    protected Animator anim;
 
     [SerializeField]protected float shootSpeed;
     [SerializeField]protected GameObject gun;
@@ -19,12 +20,9 @@ public abstract class Weapon: MonoBehaviour
     protected float recoilAmount;
     protected float recoilRecoveryTime;
     protected Quaternion initialRotation;
-
+    protected ParticleSystem shellCase;
     // Update is called once per frame
 
-    private void Start()
-    {
-    }
     protected void Rotate()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -43,6 +41,9 @@ public abstract class Weapon: MonoBehaviour
         gun = Instantiate(gun, shootPos.transform.position, shootPos.transform.rotation);
         Vector2 shootDir = shootPos.right;
         gun.GetComponent<Rigidbody2D>().velocity = shootDir * shootSpeed;
+
+        shellCase.Play();
+        anim.SetTrigger("recoil");
     }
 
     protected virtual void Reload()

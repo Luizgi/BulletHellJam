@@ -24,10 +24,13 @@ public class PlayerMove : MonoBehaviour
     float dashCounter;
     float dashCoolCounter;
 
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();       
         activeMoveSpeed = moveSpeed;
+
+
     }
 
     void Update()

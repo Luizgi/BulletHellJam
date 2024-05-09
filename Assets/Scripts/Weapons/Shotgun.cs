@@ -13,10 +13,11 @@ public class Shotgun : Weapon
         SetBullet(uiBullet);
 
         position = this.gameObject;
+        anim = this.GetComponent<Animator>();
+        shellCase = this.GetComponentInChildren<ParticleSystem>();
 
 
-
-        shootSpeed = 5f;
+        shootSpeed = 25f;
         waitShoot = 1f;
         maxBullet = 6;
 
@@ -27,6 +28,8 @@ public class Shotgun : Weapon
     private void Update()
     {
         Rotate();
+        SetBullet(uiBullet);
+
         waitShoot -= Time.deltaTime;
         if (Input.GetButtonDown("Fire1") && manyBullet > 0)
         {
