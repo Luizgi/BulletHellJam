@@ -7,7 +7,6 @@ public class Shotgun : Weapon
 {
     [SerializeField] TextMeshProUGUI uiBullet;
 
-
     private void Start()
     {
         SetBullet(uiBullet);
@@ -16,6 +15,9 @@ public class Shotgun : Weapon
         anim = this.GetComponent<Animator>();
         shellCase = this.GetComponentInChildren<ParticleSystem>();
 
+
+        shakeIntensity = 7f;
+        shakeTime = .1f;
 
         shootSpeed = 25f;
         waitShoot = 1f;

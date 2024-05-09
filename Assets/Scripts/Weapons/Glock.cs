@@ -15,6 +15,8 @@ public class Glock: Weapon
         anim = this.GetComponent<Animator>();
         shellCase = this.GetComponentInChildren<ParticleSystem>();
 
+        shakeIntensity = 5f;
+        shakeTime = .1f;
 
         shootSpeed = 25f;
         waitShoot = .5f;

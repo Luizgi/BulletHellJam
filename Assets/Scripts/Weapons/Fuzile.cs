@@ -15,6 +15,9 @@ public class Fuzile : Weapon
         shellCase = this.GetComponentInChildren<ParticleSystem>();
 
 
+        shakeIntensity = 1f;
+        shakeTime = .1f;
+
         shootSpeed = 40f;
         waitShoot = .1f;
         maxBullet = 60;

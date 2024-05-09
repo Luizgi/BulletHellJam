@@ -21,6 +21,9 @@ public abstract class Weapon: MonoBehaviour
     protected float recoilRecoveryTime;
     protected Quaternion initialRotation;
     protected ParticleSystem shellCase;
+    protected float shakeIntensity;
+    protected float shakeTime;
+
     // Update is called once per frame
 
     protected void Rotate()
@@ -37,15 +40,15 @@ public abstract class Weapon: MonoBehaviour
         position.transform.rotation = Quaternion.Euler(new Vector3(0, 0, ang));
     }
     protected void Shoot()
-    {       
-        gun = Instantiate(gun, shootPos.transform.position, shootPos.transform.rotation);
-        Vector2 shootDir = shootPos.right;
-        gun.GetComponent<Rigidbody2D>().velocity = shootDir * shootSpeed;
+    {  
+            Instantiate(gun, shootPos.transform.position, shootPos.transform.rotation);
+            Vector2 shootDir = shootPos.right;
+            gun.GetComponent<Rigidbody2D>().velocity = shootDir * shootSpeed;
 
-        shellCase.Play();
-        anim.SetTrigger("recoil");
+            shellCase.Play();
+            anim.SetTrigger("recoil");
+            CinemachineShake.instace.Shake(shakeIntensity, shakeTime);
     }
-
     protected virtual void Reload()
     {
         if(manyBullet <= 0)
@@ -57,4 +60,4 @@ public abstract class Weapon: MonoBehaviour
     {
         uiBullet.text = manyBullet.ToString() + " / " + maxBullet.ToString();
     }
-}
+} 
