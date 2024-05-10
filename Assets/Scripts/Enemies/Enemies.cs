@@ -9,6 +9,8 @@ public abstract class Enemies : MonoBehaviour
     protected Rigidbody2D rb2d;
     protected SpriteRenderer spr;
     protected BoxCollider2D bc;
+    protected float timeDestroy;
+
 
     protected int life;
     protected Color original;
@@ -17,17 +19,20 @@ public abstract class Enemies : MonoBehaviour
     {
         if (collision.CompareTag("Damageable"))
         {
+            LostLife();
             Destroy(collision.gameObject);
-            StartCoroutine(FlashWhite());
-            life--;
-
-            if(life <= 0)
-            {
-                Die();
-            }
-
         }
+    }
 
+    private void LostLife()
+    {
+        StartCoroutine(FlashWhite());
+        life--;
+
+        if (life <= 0)
+        {
+            Die();
+        }
     }
 
     private void Die()
@@ -36,7 +41,7 @@ public abstract class Enemies : MonoBehaviour
         spr.sprite = null;
         bc.enabled = false;
 
-        Destroy(this.gameObject, .5f);
+        Destroy(this.gameObject, timeDestroy);
     }
 
     IEnumerator FlashWhite()

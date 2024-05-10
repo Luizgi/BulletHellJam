@@ -13,6 +13,8 @@ public class Default : Enemies
         bc = this.GetComponent<BoxCollider2D>();
         original = this.spr.color;
 
+        timeDestroy = ps_blood.main.duration;
+
         life = 5;
     }
 }

@@ -13,18 +13,16 @@ public abstract class Weapon: MonoBehaviour
     protected int maxBullet;
     protected Animator anim;
 
-    [SerializeField]protected float shootSpeed;
-    [SerializeField]protected GameObject gun;
+    [SerializeField] protected float shootSpeed;
+    [SerializeField] protected GameObject gunPrefab;
 
-    [SerializeField]protected float waitShoot;
+    [SerializeField] protected float waitShoot;
     protected float recoilAmount;
     protected float recoilRecoveryTime;
     protected Quaternion initialRotation;
     protected ParticleSystem shellCase;
     protected float shakeIntensity;
     protected float shakeTime;
-
-    // Update is called once per frame
 
     protected void Rotate()
     {
@@ -40,10 +38,10 @@ public abstract class Weapon: MonoBehaviour
         position.transform.rotation = Quaternion.Euler(new Vector3(0, 0, ang));
     }
     protected void Shoot()
-    {  
-            Instantiate(gun, shootPos.transform.position, shootPos.transform.rotation);
+    {
+            GameObject gunInstance = Instantiate(gunPrefab, shootPos.transform.position, shootPos.transform.rotation);
             Vector2 shootDir = shootPos.right;
-            gun.GetComponent<Rigidbody2D>().velocity = shootDir * shootSpeed;
+            gunInstance.GetComponent<Rigidbody2D>().velocity = shootDir * shootSpeed;
 
             shellCase.Play();
             anim.SetTrigger("recoil");
@@ -60,4 +58,5 @@ public abstract class Weapon: MonoBehaviour
     {
         uiBullet.text = manyBullet.ToString() + " / " + maxBullet.ToString();
     }
+
 } 
