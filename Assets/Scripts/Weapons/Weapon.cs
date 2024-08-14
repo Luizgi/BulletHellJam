@@ -19,8 +19,10 @@ public abstract class Weapon: MonoBehaviour
     [SerializeField] protected float waitShoot;
     protected float recoilAmount;
     protected float recoilRecoveryTime;
+
     protected Quaternion initialRotation;
     protected ParticleSystem shellCase;
+
     protected float shakeIntensity;
     protected float shakeTime;
 
@@ -45,7 +47,7 @@ public abstract class Weapon: MonoBehaviour
 
             shellCase.Play();
             anim.SetTrigger("recoil");
-            CinemachineShake.instace.Shake(shakeIntensity, shakeTime);
+            CinemachineShake.instance.Shake(shakeIntensity, shakeTime);
     }
     protected virtual void Reload()
     {

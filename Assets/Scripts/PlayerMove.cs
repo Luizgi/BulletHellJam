@@ -29,8 +29,6 @@ public class PlayerMove : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();       
         activeMoveSpeed = moveSpeed;
-
-
     }
 
     void Update()
@@ -48,12 +46,12 @@ public class PlayerMove : MonoBehaviour
         {
             if(dashCoolCounter <= 0 && dashCounter <= 0)
             {
-            activeMoveSpeed = dashSpeed;
-            dashCounter = DashLength;
+                activeMoveSpeed = dashSpeed;
+                dashCounter = DashLength;
 
-            Camera.main.transform.DOComplete();
-            Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
-            FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
+                Camera.main.transform.DOComplete();
+                Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
+                FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
             }
         
         }

@@ -7,10 +7,10 @@ public class CinemachineShake : MonoBehaviour
 {   
     CinemachineVirtualCamera cmVCAM;
     float shakerTimer;
-    public static CinemachineShake instace { get; private set; }
+    public static CinemachineShake instance { get; private set; }
     private void Awake()
     {
-        instace = this; 
+        instance = this; 
         cmVCAM = GetComponent<CinemachineVirtualCamera>();
     }
 
