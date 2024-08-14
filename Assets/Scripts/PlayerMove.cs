@@ -40,11 +40,19 @@ public class PlayerMove : MonoBehaviour
 
         rb2d.velocity = moveInput * activeMoveSpeed;
 
+        Dash();
+        ChangeWeapon();
+
+
+    }
+
+    private void Dash()
+    {
         dashSpeed = moveSpeed * 2;
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if(dashCoolCounter <= 0 && dashCounter <= 0)
+            if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 activeMoveSpeed = dashSpeed;
                 dashCounter = DashLength;
@@ -53,24 +61,21 @@ public class PlayerMove : MonoBehaviour
                 Camera.main.transform.DOShakePosition(.2f, .5f, 14, 90, false, true);
                 FindObjectOfType<RippleEffect>().Emit(Camera.main.WorldToViewportPoint(transform.position));
             }
-        
+
         }
-        if(dashCounter > 0)
+        if (dashCounter > 0)
         {
             dashCounter -= Time.deltaTime;
-            if(dashCounter <= 0)
+            if (dashCounter <= 0)
             {
                 activeMoveSpeed = moveSpeed;
                 dashCoolCounter = dashCooldown;
             }
         }
-        if(dashCoolCounter > 0)
+        if (dashCoolCounter > 0)
         {
             dashCoolCounter -= Time.deltaTime;
         }
-        ChangeWeapon();
-
-       
     }
 
     private void ChangeWeapon()
