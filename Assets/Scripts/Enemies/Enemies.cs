@@ -5,13 +5,15 @@ using UnityEngine;
 
 public abstract class Enemies : MonoBehaviour
 {
+    [Header("Components")]
     protected ParticleSystem ps_blood;
     protected Rigidbody2D rb2d;
     protected SpriteRenderer spr;
     protected BoxCollider2D bc;
+
+
+    [Header("Others")]
     protected float timeDestroy;
-
-
     protected int life;
     protected Color original;
 
@@ -29,10 +31,7 @@ public abstract class Enemies : MonoBehaviour
         StartCoroutine(FlashWhite());
         life--;
 
-        if (life <= 0)
-        {
-            Die();
-        }
+        if (life <= 0) Die();
     }
 
     private void Die()

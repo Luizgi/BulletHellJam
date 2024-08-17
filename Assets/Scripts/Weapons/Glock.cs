@@ -30,12 +30,10 @@ public class Glock: Weapon
     {
         Rotate();
         SetBullet(uiBullet);
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            base.Reload();
-        }
+        if (Input.GetKeyDown(KeyCode.R)) base.Reload();
 
         waitShoot -= Time.deltaTime;
+
         if(Input.GetButtonDown("Fire1") && manyBullet > 0)
         {
             if(waitShoot <= 0)

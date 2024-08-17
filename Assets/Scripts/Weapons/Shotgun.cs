@@ -33,6 +33,7 @@ public class Shotgun : Weapon
         SetBullet(uiBullet);
 
         waitShoot -= Time.deltaTime;
+
         if (Input.GetButtonDown("Fire1") && manyBullet > 0)
         {
             if (waitShoot <= 0)

@@ -17,7 +17,6 @@ public class Fuzile : Weapon
 
         shakeIntensity = 1f;
         shakeTime = .1f;
-
         shootSpeed = 40f;
         waitShoot = .1f;
         maxBullet = 60;
@@ -31,12 +30,10 @@ public class Fuzile : Weapon
         SetBullet(uiBullet);
         Rotate();
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            base.Reload();
-        }
+        if (Input.GetKeyDown(KeyCode.R)) base.Reload();
 
         waitShoot -= Time.deltaTime;
+
         if (Input.GetButton("Fire1") && manyBullet > 0)
         {
             if (waitShoot <= 0)
