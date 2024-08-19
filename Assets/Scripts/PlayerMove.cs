@@ -42,8 +42,6 @@ public class PlayerMove : MonoBehaviour
 
         Dash();
         ChangeWeapon();
-
-
     }
 
     private void Dash()
@@ -72,10 +70,7 @@ public class PlayerMove : MonoBehaviour
                 dashCoolCounter = dashCooldown;
             }
         }
-        if (dashCoolCounter > 0)
-        {
-            dashCoolCounter -= Time.deltaTime;
-        }
+        if (dashCoolCounter > 0) dashCoolCounter -= Time.deltaTime;
     }
 
     private void ChangeWeapon()
@@ -88,14 +83,9 @@ public class PlayerMove : MonoBehaviour
 
             index += (scrollDelta.y > 0f) ? 1 : -1;
 
-            if(index >= weapons.Count)
-            {
-                index = 0;
-            }
-            else if(index < 0)
-            {
-                index = weapons.Count - 1;
-            }
+            if(index >= weapons.Count) index = 0;
+            else if(index < 0) index = weapons.Count - 1;
+
 
             weapons[index].SetActive(true);
             UIWeapons[index].SetActive(true);

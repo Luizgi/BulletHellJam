@@ -51,10 +51,7 @@ public abstract class Weapon: MonoBehaviour
     }
     protected virtual void Reload()
     {
-        if(manyBullet <= 0)
-        {
-            manyBullet = maxBullet;
-        }
+        if(manyBullet <= 0) manyBullet = maxBullet;
     }
     public void SetBullet(TextMeshProUGUI uiBullet)
     {
